@@ -1,11 +1,12 @@
-#include<fstream.h>
+#include<bits/stdc++.h>
+// #include<fstream.h>
 #include<process.h>
 #include<conio.h>
 #include<dos.h>
 #include<stdio.h>
 #include<dir.h>
 #include<string.h>
-#include<graphics.h>
+// #include<graphics.h>
 #include<stdlib.h>
 
 void getdrives(char []);

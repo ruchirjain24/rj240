@@ -1,0 +1,98 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001d6344366f0 .scope module, "ALUctrlTest" "ALUctrlTest" 2 10;
+ .timescale 0 0;
+v000001d6343ea690_0 .var "ALUOp", 1 0;
+v000001d6343ea870_0 .var "funct", 5 0;
+v000001d6343ea910_0 .net "operation", 2 0, L_000001d634488590;  1 drivers
+S_000001d634436880 .scope module, "a1" "alucontrol" 2 14, 2 1 0, S_000001d6344366f0;
+ .timescale 0 0;
+    .port_info 0 /OUTPUT 3 "operation";
+    .port_info 1 /INPUT 6 "funct";
+    .port_info 2 /INPUT 2 "ALUOp";
+L_000001d6344349e0 .functor AND 1, L_000001d6343e9a10, L_000001d6343e9ab0, C4<1>, C4<1>;
+L_000001d634434a50 .functor OR 1, L_000001d6344349e0, L_000001d6343e9b50, C4<0>, C4<0>;
+L_000001d634434b30 .functor NOT 1, L_000001d634489990, C4<0>, C4<0>, C4<0>;
+L_000001d634434900 .functor NOT 1, L_000001d634489b70, C4<0>, C4<0>, C4<0>;
+L_000001d634434820 .functor OR 1, L_000001d634434b30, L_000001d634434900, C4<0>, C4<0>;
+L_000001d634434660 .functor OR 1, L_000001d634489c10, L_000001d634489cb0, C4<0>, C4<0>;
+L_000001d634434ac0 .functor AND 1, L_000001d634434660, L_000001d634489030, C4<1>, C4<1>;
+v000001d6343ea7d0_0 .net "ALUOp", 1 0, v000001d6343ea690_0;  1 drivers
+v000001d6343ea190_0 .net *"_ivl_10", 0 0, L_000001d634434a50;  1 drivers
+v000001d6343e9fb0_0 .net *"_ivl_15", 0 0, L_000001d634489990;  1 drivers
+v000001d6343e9bf0_0 .net *"_ivl_16", 0 0, L_000001d634434b30;  1 drivers
+v000001d6343e9c90_0 .net *"_ivl_19", 0 0, L_000001d634489b70;  1 drivers
+v000001d6343ea050_0 .net *"_ivl_20", 0 0, L_000001d634434900;  1 drivers
+v000001d6343e9f10_0 .net *"_ivl_22", 0 0, L_000001d634434820;  1 drivers
+v000001d6343ea0f0_0 .net *"_ivl_28", 0 0, L_000001d634489c10;  1 drivers
+v000001d6343ea5f0_0 .net *"_ivl_3", 0 0, L_000001d6343e9a10;  1 drivers
+v000001d6343e9d30_0 .net *"_ivl_30", 0 0, L_000001d634489cb0;  1 drivers
+v000001d6343ea370_0 .net *"_ivl_31", 0 0, L_000001d634434660;  1 drivers
+v000001d6343ea410_0 .net *"_ivl_34", 0 0, L_000001d634489030;  1 drivers
+v000001d6343ea4b0_0 .net *"_ivl_35", 0 0, L_000001d634434ac0;  1 drivers
+v000001d6343ea230_0 .net *"_ivl_5", 0 0, L_000001d6343e9ab0;  1 drivers
+v000001d6343ea730_0 .net *"_ivl_6", 0 0, L_000001d6344349e0;  1 drivers
+v000001d6343e9dd0_0 .net *"_ivl_9", 0 0, L_000001d6343e9b50;  1 drivers
+v000001d6343ea550_0 .net "funct", 5 0, v000001d6343ea870_0;  1 drivers
+v000001d6343e9e70_0 .net "operation", 2 0, L_000001d634488590;  alias, 1 drivers
+L_000001d6343e9a10 .part v000001d6343ea690_0, 1, 1;
+L_000001d6343e9ab0 .part v000001d6343ea870_0, 1, 1;
+L_000001d6343e9b50 .part v000001d6343ea690_0, 0, 1;
+L_000001d634489990 .part v000001d6343ea690_0, 1, 1;
+L_000001d634489b70 .part v000001d6343ea870_0, 2, 1;
+L_000001d634488590 .concat8 [ 1 1 1 0], L_000001d634434ac0, L_000001d634434820, L_000001d634434a50;
+L_000001d634489c10 .part v000001d6343ea870_0, 3, 1;
+L_000001d634489cb0 .part v000001d6343ea870_0, 0, 1;
+L_000001d634489030 .part v000001d6343ea690_0, 1, 1;
+    .scope S_000001d6344366f0;
+T_0 ;
+    %vpi_call 2 17 "$monitor", $time, "\011 funct=%b \011 APUOp=%b \011 operation=%b\012", v000001d6343ea870_0, v000001d6343ea690_0, v000001d6343ea910_0 {0 0 0};
+    %delay 0, 0;
+    %pushi/vec4 0, 0, 6;
+    %store/vec4 v000001d6343ea870_0, 0, 6;
+    %pushi/vec4 0, 0, 2;
+    %store/vec4 v000001d6343ea690_0, 0, 2;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 6;
+    %store/vec4 v000001d6343ea870_0, 0, 6;
+    %pushi/vec4 1, 0, 2;
+    %store/vec4 v000001d6343ea690_0, 0, 2;
+    %delay 10, 0;
+    %pushi/vec4 0, 0, 6;
+    %store/vec4 v000001d6343ea870_0, 0, 6;
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v000001d6343ea690_0, 0, 2;
+    %delay 10, 0;
+    %pushi/vec4 2, 0, 6;
+    %store/vec4 v000001d6343ea870_0, 0, 6;
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v000001d6343ea690_0, 0, 2;
+    %delay 10, 0;
+    %pushi/vec4 4, 0, 6;
+    %store/vec4 v000001d6343ea870_0, 0, 6;
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v000001d6343ea690_0, 0, 2;
+    %delay 10, 0;
+    %pushi/vec4 5, 0, 6;
+    %store/vec4 v000001d6343ea870_0, 0, 6;
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v000001d6343ea690_0, 0, 2;
+    %delay 10, 0;
+    %pushi/vec4 10, 0, 6;
+    %store/vec4 v000001d6343ea870_0, 0, 6;
+    %pushi/vec4 2, 0, 2;
+    %store/vec4 v000001d6343ea690_0, 0, 2;
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "alucontrol.v";

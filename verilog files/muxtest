@@ -1,0 +1,61 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1110-g18392a46)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000212f2c67d90 .scope module, "textbench_mux" "textbench_mux" 2 1;
+ .timescale 0 0;
+v00000212f2c67fc0_0 .var "a", 0 0;
+v00000212f2c6cdb0_0 .var "b", 0 0;
+v00000212f2c6ce50_0 .net "f", 0 0, L_00000212f2c6cf90;  1 drivers
+v00000212f2c6cef0_0 .var "s", 0 0;
+S_00000212f2c6cc20 .scope module, "mux" "mux2to1_df" 2 4, 3 1 0, S_00000212f2c67d90;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /INPUT 1 "s";
+    .port_info 3 /OUTPUT 1 "f";
+v00000212f2c83220_0 .net "a", 0 0, v00000212f2c67fc0_0;  1 drivers
+v00000212f2c833c0_0 .net "b", 0 0, v00000212f2c6cdb0_0;  1 drivers
+v00000212f2c82f80_0 .net "f", 0 0, L_00000212f2c6cf90;  alias, 1 drivers
+v00000212f2c67f20_0 .net "s", 0 0, v00000212f2c6cef0_0;  1 drivers
+L_00000212f2c6cf90 .functor MUXZ 1, v00000212f2c6cdb0_0, v00000212f2c67fc0_0, v00000212f2c6cef0_0, C4<>;
+    .scope S_00000212f2c67d90;
+T_0 ;
+    %vpi_call 2 6 "$monitor", $time, "a=%b, b=%b, s=%b, f=%b", v00000212f2c67fc0_0, v00000212f2c6cdb0_0, v00000212f2c6cef0_0, v00000212f2c6ce50_0 {0 0 0};
+    %delay 0, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000212f2c67fc0_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000212f2c6cdb0_0, 0, 1;
+    %delay 2, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000212f2c6cef0_0, 0, 1;
+    %delay 5, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000212f2c6cef0_0, 0, 1;
+    %delay 10, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000212f2c67fc0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000212f2c6cdb0_0, 0, 1;
+    %delay 15, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000212f2c6cef0_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000212f2c6cef0_0, 0, 1;
+    %delay 100, 0;
+    %vpi_call 2 13 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "textbench_mux.v";
+    "mux2to1_df.v";
